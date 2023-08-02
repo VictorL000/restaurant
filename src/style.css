@@ -1,0 +1,9 @@
+.food-listing {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.separator {
+    border-top: 3px dotted black;
+    flex: 1 1 auto;
+}
