@@ -46,16 +46,24 @@ const displayMenu = () => {
     const menuContainer = cc.appendChild(
         Object.assign(document.createElement("div"))
     );
-
+    let gap = 300;
     for (let j = 0; j < 3; j++) {
         const section = document.createElement("div");
         section.classList.add("section");
         menuContainer.appendChild(section);
-        section.appendChild(
+
+        let h = section.appendChild(
             Object.assign(document.createElement("h3"), {
                 textContent: "ap·pe·tiz·er",
             })
         );
+        h.style.opacity = 0;
+        h.style.transitionDelay = `${gap}ms`;
+        gap += 30;
+        setTimeout(() => {
+            h.style.opacity = 1;
+        }, 10);
+
         for (let i = 0; i < 3; i++) {
             const listing = section.appendChild(
                 Object.assign(document.createElement("div"))
@@ -75,10 +83,24 @@ const displayMenu = () => {
                     textContent: "18",
                 })
             );
+
+            listing.style.opacity = 0;
+            listing.style.transitionDelay = `${gap}ms`;
+            gap += 30;
+            setTimeout(() => {
+                listing.style.opacity = 1;
+            }, 10);
         }
     }
     cc.querySelectorAll(".section > h3")[1].textContent = "en·trée";
     cc.querySelectorAll(".section > h3")[2].textContent = "des·sert";
+
+    document.querySelectorAll(".section").forEach((t) => {
+        t.style.opacity = 0;
+        setTimeout(() => {
+            t.style.opacity = 1;
+        }, 10);
+    });
 };
 
 const displayContact = () => {
@@ -87,10 +109,25 @@ const displayContact = () => {
     );
     contact.classList.add("contact-container");
     contact.innerHTML = `
-                    <h3>290 Bremner Blvd</h3>
-                    <h3>Toronto, ON M5V 3L9</h3>
-                    <h3>647-753-9254</h3>
-                    <a href="#"><h3>127.0.0.1:5500</h3></a>`;
+                    <p>290 Bremner Blvd</p>
+</br>
+                    <p>Toronto, ON M5V 3L9</p>
+
+</br>
+</br>
+                    <p>647-753-9254</p>
+
+</br>
+</br>
+</br>
+</br>
+                    <a href="#"><p>127.0.0.1:5500</p></a>`;
+    contact.querySelectorAll(":not(br)").forEach(t => {
+        t.style.opacity = 0;
+        setTimeout(() => {
+            t.style.opacity = 1;
+        }, 10);
+    });
 };
 
 const displayFooter = () => {
