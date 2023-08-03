@@ -122,8 +122,15 @@ body {
     display: flex;
     flex-direction: column;
 }
+.main-type :nth-child(1) {
+    transition: opacity 30ms ease-out 250ms;
+}
 .main-type :nth-child(2) {
     align-self: flex-end;
+    transition: opacity 30ms ease-out 550ms;
+}
+.main-type :nth-child(3) {
+    transition: opacity 30ms ease-out 850ms;
 }
 .contact-container {
     margin-top: 10px;

@@ -25,7 +25,6 @@ const displayHome = () => {
     const mainType = document.createElement("div");
     mainType.classList.add("main-type");
     cc.appendChild(mainType);
-
     const t1 = document.createElement("h1");
     t1.textContent = "WE";
     const t2 = document.createElement("h1");
@@ -35,13 +34,19 @@ const displayHome = () => {
     mainType.appendChild(t1);
     mainType.appendChild(t2);
     mainType.appendChild(t3);
+    mainType.childNodes.forEach((t) => {
+        t.style.opacity = 0;
+        setTimeout(() => {
+            t.style.opacity = 1;
+        }, 10);
+    });
 };
 
 const displayMenu = () => {
     const menuContainer = cc.appendChild(
         Object.assign(document.createElement("div"))
     );
-    
+
     for (let j = 0; j < 3; j++) {
         const section = document.createElement("div");
         section.classList.add("section");
